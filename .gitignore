@@ -1,2 +1,6 @@
 
 \.idea/workspace\.xml
+
+venv/lib/python3\.5/__pycache__/ntpath\.cpython-35\.pyc
+
+cancersample\.py
