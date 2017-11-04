@@ -1,6 +1,5 @@
 import numpy as np
 import time
-import pickle
 
 from sklearn.externals import joblib
 from sklearn.model_selection import train_test_split
@@ -32,19 +31,17 @@ x_test = scaler.transform(x_test)
 
 start = time.time()
 
-mlp = MLPRegressor(hidden_layer_sizes=(35, 35, 30),
+mlp = MLPRegressor(hidden_layer_sizes=(35, 50, 30),
                    activation='relu',     # relu converges fastest and works well on this dataset
-                   solver='adam',         # can use lbfgs for slightly greater accuracy, or adam for ~1/3 runtime
+                   solver='lbfgs',         # can use lbfgs for slightly greater accuracy, or adam for ~1/3 runtime
                    learning_rate_init=0.0008,  # seems to be the most consistently accurate
                    )
 
 mlp.fit(x_train, y_train)
-#predictions = mlp.predict(x_test)
+predictions = mlp.predict(x_test)
 
-s = pickle.dumps(mlp)
-mlp2 = pickle.loads(s)
-predictions = mlp2.predict(x_test)
 joblib.dump(mlp, 'model.pkl')
+
 
 end = time.time()
 
@@ -66,3 +63,4 @@ print("Mean Squared Error: " + str(mean_squared_error(y_test, predictions)))
 
 np.savetxt('results.csv', results, delimiter=',', header='Predicted,Actual,Difference')
 print("Results saved to 'results.csv'")
+print("Model saved to 'model.pkl'")
