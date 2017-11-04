@@ -1,6 +1,8 @@
 import numpy as np
 import time
+import pickle
 
+from sklearn.externals import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPRegressor
@@ -37,7 +39,12 @@ mlp = MLPRegressor(hidden_layer_sizes=(35, 35, 30),
                    )
 
 mlp.fit(x_train, y_train)
-predictions = mlp.predict(x_test)
+#predictions = mlp.predict(x_test)
+
+s = pickle.dumps(mlp)
+mlp2 = pickle.loads(s)
+predictions = mlp2.predict(x_test)
+joblib.dump(mlp, 'model.pkl')
 
 end = time.time()
 
