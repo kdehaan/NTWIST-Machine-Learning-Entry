@@ -76,6 +76,3 @@ if data_type == 'y':
 
     np.savetxt('model_results.csv', results, delimiter=',', header='Predicted,Actual,Difference')
     print("Results saved to 'model_results.csv'")
-
-
-

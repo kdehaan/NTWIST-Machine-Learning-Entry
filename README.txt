@@ -1,9 +1,17 @@
 Kevin de Haan, 2017
 
+
+
 Usage instructions:
+    ** NOTE **
+    main.py will work (as far as I am aware) on python 2, while model.py will not,
+    as input() is not cross-compatible. If you only have python 2 and do not want
+    to risk messing up your environment, it is possible to remove the input statements
+    from model.py to hard code the files you want to use. 
+    That being said, this code was written for python 3 and any python 2 compatibility
+    may be considered a happy accident. It is not designed to be cross-compatible.
 
-
-If required dependencies are installed (on any system), simply run 'python3 main.py':
+If required dependencies are installed (on any system), simply run 'python3 main.py' or 'python3 model.py':
     -NumPy
     -SciPy
     -SciKit-learn
@@ -20,8 +28,8 @@ On Windows, with python >= 3.3 installed:
     navigate to file location
     type '.\win_env\Scripts\activate'
     this will run the appropriate file for cmd or powershell, whichever you are using
-    with the virtual environment active, type 'python .\main.py' to create a model
-    type '.\model.py' to test a model
+    with the virtual environment active, type 'python3 .\main.py' to create a model
+    type 'python3 .\model.py' to test a model
 
     to exit the virtual environment, type 'deactivate'
 
