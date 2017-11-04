@@ -34,7 +34,7 @@ start = time.time()
 mlp = MLPRegressor(hidden_layer_sizes=(35, 50, 30),
                    activation='relu',     # relu converges fastest and works well on this dataset
                    solver='lbfgs',         # can use lbfgs for slightly greater accuracy, or adam for ~1/3 runtime
-                   learning_rate_init=0.0008,  # seems to be the most consistently accurate
+                   learning_rate_init=0.0007,  # seems to be the most consistently accurate
                    )
 
 mlp.fit(x_train, y_train)
