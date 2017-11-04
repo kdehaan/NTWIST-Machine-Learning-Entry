@@ -12,12 +12,6 @@ On linux, with python >= 3.3 installed:
     navigate to file location
     type 'venv/bin/python3.5 main.py'
 
-    OR
-     
-    enter the virtual environment directly with 'venv/bin/activate'
-    and run the file with 'python3 main.py' or 'python main.py' depending on your system
-
-    to exit the virtual environment, type 'deactivate'
     
 On Windows, with python >= 3.3 installed:
     extract files to appropriate file location
