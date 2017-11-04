@@ -31,17 +31,17 @@ x_test = scaler.transform(x_test)
 mlp = MLPRegressor(hidden_layer_sizes=(30, 30, 30))
 mlp.fit(x_train, y_train)
 predictions = mlp.predict(x_test)
-print(y_test[0:5].transpose())
-print(predictions[0:5].transpose())
+print(y_test[0:5])
+print(predictions[0:5])
 difference = np.absolute(y_test-predictions)
-print("Number of tests:" + str(np.alen(difference)))
+print("Number of tests: " + str(np.alen(difference)))
 print("Sample difference: " + str(difference[0:5]))
 print("Average difference: " + str(np.average(difference)))
 print("Maximum difference: " + str(np.max(difference)))
 print("Minimum difference: " + str(np.min(difference)))
+results = np.hstack((predictions[np.newaxis].T, y_test[np.newaxis].T, difference[np.newaxis].T))
 
-results = np.hstack((predictions, y_test.transpose))
-np.savetxt('results.csv', results, delimiter=',')
+np.savetxt('results.csv', results, delimiter=',', header='Predicted,Actual,Difference')
 
 # Accuracy metric used:
 # https://en.wikipedia.org/wiki/Coefficient_of_determination
